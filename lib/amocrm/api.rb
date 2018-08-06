@@ -52,7 +52,8 @@ module Amocrm
     def exec(method, action, data = {})
       path = API_METHOD_PATH % { action: action }
       data = JSON.generate(data)
-      request method, path, data
+      response = request method, path, data
+      response
     end
 
     private
