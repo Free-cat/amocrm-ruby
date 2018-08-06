@@ -52,8 +52,7 @@ module Amocrm
     def exec(method, action, data = {})
       path = API_METHOD_PATH % { action: action }
       data = JSON.generate(data)
-      response = request method, path, data
-      response
+      request method, path, data
     end
 
     private
@@ -74,6 +73,8 @@ module Amocrm
                    when :delete, :get then connection.send(method.to_sym, path, headers)
                  end
 
+      puts response
+      puts "BODY: #{response.body}"
       cookie = response.to_hash['set-cookie']
       @cookie = cookie if @cookie.nil? || @cookie.empty?
 
@@ -92,7 +93,7 @@ module Amocrm
       end
 
       raise GenericError.new(response['error']) if response['error']
-
+      puts result
       result
     end
 
