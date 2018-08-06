@@ -73,8 +73,6 @@ module Amocrm
                    when :delete, :get then connection.send(method.to_sym, path, headers)
                  end
 
-      puts response
-      puts "BODY: #{response.body}"
       cookie = response.to_hash['set-cookie']
       @cookie = cookie if @cookie.nil? || @cookie.empty?
 
@@ -87,13 +85,13 @@ module Amocrm
       end
 
       begin
-        result = JSON.parse(response.body)['response']
+        result = JSON.parse(response.body)
       rescue
         raise MalformedResponse.new 'Response is not a valid JSON'
       end
 
       raise GenericError.new(response['error']) if response['error']
-      puts result
+
       result
     end
 
