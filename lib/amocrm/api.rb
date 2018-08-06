@@ -5,7 +5,7 @@ module Amocrm
   class API
     API_DOMAIN        = "%{subdomain}.amocrm.ru"
     API_AUTH_PATH     = "/private/api/auth.php?type=json"
-    API_METHOD_PATH   = "/private/api/v2/json/%{action}"
+    API_METHOD_PATH   = "/api/v2/%{action}"
 
     HTTP_CODES =  {
       301 => Error,
