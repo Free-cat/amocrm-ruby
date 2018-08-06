@@ -59,7 +59,7 @@ module Amocrm
 
     def connection
       return @connection if @connection
-      @connection = Net::HTTP.new(API_DOMAIN % @options, 443)
+      @connection = Net::HTTP.new(API_DOMAIN % @options + path, 443)
       @connection.use_ssl = true
       @connection
     end
