@@ -6,10 +6,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.8)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
+    public_suffix (4.0.6)
     rake (10.3.2)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
